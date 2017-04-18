@@ -3,11 +3,13 @@
 class ControllerFilms extends Controller {
 
     public function actionIndex() {
-	echo "films";
+	$data=  $this->model->get_data();
+	$this->view->generate('index.php','layout.php',$data);
     }
 
     public function actionView($id) {
-	echo 'Film #' . $id;
+	$data=  $this->model->get_data();
+	$this->view->generate('view.php','layout.php',$data);
     }
 
     public function actionDelete() {
