@@ -12,6 +12,7 @@ class ControllerActors extends Controller {
     }
 
     public function actionView($id) {
-	echo 'Actors #' . $id;
+	$actor=  $this->model->get_actor_by_id($id);
+	$this->view->generate('actors/view.php','layout.php',$actor);
     }
 }
