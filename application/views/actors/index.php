@@ -7,13 +7,13 @@
     </tr>
 
     <?php foreach ($data as $actor) : ?>
-    <tr>
-    	<td><?= $actor['id']?></td>
-    	<td><?= $actor['name']?></td>
-    	<td><?= $actor['lastname']?></td>
-	<td>
-	    <a href="/actors/<?= $actor['id']?>">more</a>
-	</td>
-    </tr>
+        <tr>
+	    <td><?= $actor['id'] ?></td>
+	    <td><?= $actor['name'] ?></td>
+	    <td><?= $actor['lastname'] ?></td>
+	    <td>
+		<a href="/actors/<?= $actor['id'] ?>">more</a>
+	    </td>
+        </tr>
     <?php endforeach; ?>
 </table>
