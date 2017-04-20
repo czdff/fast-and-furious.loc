@@ -8,7 +8,7 @@ class ControllerActors extends Controller {
     }
     public function actionIndex() {
 	$actors=  $this->model->get_data();
-	$this->view->generate('actors/index.php','layout.php',$actors);
+	$this->view->generate('actors/index.php','layout.php',$actors, 'actors');
     }
 
     public function actionView($id) {
