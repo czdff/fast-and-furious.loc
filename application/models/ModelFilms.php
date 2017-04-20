@@ -23,18 +23,12 @@ class ModelFilms extends Model {
 	}
     }
 
-    public function get_film_by_id() {
+    public function get_film_by_id($id) {
 	$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 	if (!$db->connect_error) {
-	    $q = "SELECT * FROM films WHERE id LIKE '';";
+	    $q = "SELECT * FROM films WHERE id = $id;";
 	    $res = $db->query($q);
-	    if ($res) {
-		$films = array();
-		while ($film = $res->fetch_assoc()) {
-		    $films[] = $film;
-		}
-		return $film;
-	    }
+	    return $res->fetch_assoc();
 	}
     }
 
