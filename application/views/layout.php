@@ -9,7 +9,7 @@
 	    header
 	</header>
 	<div>
-	<?= $content_view ?>
+	<?php include_once $content_view ?>
 	</div>
 	<footer>	    
 	</footer>
