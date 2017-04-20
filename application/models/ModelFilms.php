@@ -1,18 +1,14 @@
 <?php
-require_once '../core/config/db.php';
 
 class ModelFilms extends Model {
 
     private $db;
+
     public function __construct() {
-	$this->db = new mysqli(DB['localhost'], DB['root'], DB[''], DB['FAF']);
+	$this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     }
 
     public function get_data() {
-
-    }
-
-    public function get_films() {
 	$query = "SELECT * FROM films;";
 	$result = $this->db->query($query);
 	if ($result) {
@@ -23,6 +19,7 @@ class ModelFilms extends Model {
 	    return $str;
 	}
     }
+
 
     public function get_film_by_id() {
 	$query = "SELECT * FROM films ORDER BY id;";
@@ -35,4 +32,5 @@ class ModelFilms extends Model {
 	    return $str;
 	}
     }
+
 }
