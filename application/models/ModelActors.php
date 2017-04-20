@@ -20,7 +20,7 @@ class ModelActors extends Model {
     public function get_actor_by_id($id) {
 	$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 	if (!$db->connect_errno) {
-	    $q = "SELECT * FROM Actors WHERE id LIKE $id ";
+	    $q = "SELECT * FROM Actors WHERE id = $id ";
 	    $res = $db->query($q);
 	    return $res->fetch_assoc();
 	}

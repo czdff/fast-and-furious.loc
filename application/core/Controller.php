@@ -6,6 +6,10 @@ abstract class Controller {
      * @var Model model
      */
     public $model;
+    /**
+     *
+     * @var View
+     */
     public $view;
 
     function __construct() {
