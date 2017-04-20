@@ -11,7 +11,7 @@ class ControllerAdmin extends Controller {
     }
     
     public function actionEditFilms() {
-	 echo "Edit films";
+	$this->view->generate('films/edit.php', 'layout.php', null, 'hhhhh');
     }
     
     public function actionDeleteFilms() {
