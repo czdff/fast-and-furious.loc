@@ -8,9 +8,10 @@
 	<header>
 	    header
 	</header>
-	<?= $content ?>
-	<footer>
-	    
+	<div>
+	<?= $content_view ?>
+	</div>
+	<footer>	    
 	</footer>
     </body>
 </html>
