@@ -13,12 +13,8 @@ class ModelMain {
      public function get_data() {
 	$query = "SELECT * FROM Pages";
 	$result = $this->db->query($query);
-	if($result){
-	    $str = '';
-	    while ($res = $result->fetch_assoc()) {
-		$str .= "<p>".$res['name']."</p>";
-	    }
-	    return $str;
+	if($result){	    
+	    return $result->fetch_assoc();
 	}
     }
 }
