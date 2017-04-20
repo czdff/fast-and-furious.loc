@@ -8,7 +8,7 @@
 	<header>
 	    header
 	</header>
-	<?= $content ?>
+	<?= $content_view ?>
 	<footer>
 	    
 	</footer>
