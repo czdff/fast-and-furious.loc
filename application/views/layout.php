@@ -8,9 +8,10 @@
 	<header>
 	    header
 	</header>
-	<?= $content_view ?>
-	<footer>
-	    
+	<div>
+	<?php include_once $content_view ?>
+	</div>
+	<footer>	    
 	</footer>
     </body>
 </html>

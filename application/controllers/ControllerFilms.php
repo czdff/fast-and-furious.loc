@@ -1,6 +1,11 @@
 <?php
 
 class ControllerFilms extends Controller {
+    
+    public function __construct() {
+	parent::__construct();
+	$this->model=new ModelFilms();
+    }
 
     public function actionIndex() {
 	$data=  $this->model->get_data();
