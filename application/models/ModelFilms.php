@@ -9,27 +9,32 @@ class ModelFilms extends Model {
     }
 
     public function get_data() {
-	$query = "SELECT * FROM films;";
-	$result = $this->db->query($query);
-	if ($result) {
-	    $str = '';
-	    while ($res = $result->fetch_assoc()) {
-		$str .= "<p>" . $res['name'] . "</p>";
+	$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	if (!$db->connect_error) {
+	    $q = "SELECT * FROM films;";
+	    $res = $db->query($q);
+	    if ($res) {
+		$films = array();
+		while ($film = $res->fetch_assoc()) {
+		    $films[] = $film;
+		}
+		return $films;
 	    }
-	    return $str;
 	}
     }
 
-
     public function get_film_by_id() {
-	$query = "SELECT * FROM films ORDER BY id;";
-	$result = $this->db->query($query);
-	if ($result) {
-	    $str = '';
-	    while ($res = $result->fetch_assoc()) {
-		$str .= "<p>" . $res['name'] . "</p>";
+	$db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	if (!$db->connect_error) {
+	    $q = "SELECT * FROM films WHERE id LIKE '';";
+	    $res = $db->query($q);
+	    if ($res) {
+		$films = array();
+		while ($film = $res->fetch_assoc()) {
+		    $films[] = $film;
+		}
+		return $film;
 	    }
-	    return $str;
 	}
     }
 
