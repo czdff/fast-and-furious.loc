@@ -6,8 +6,7 @@ class ModelFilms extends Model {
     }
     
     public function get_films(){
-	
-	$query = "SELECT * FROM photos";
+	$query = "SELECT * FROM films";
 	$result = $this->db->query($query);
 	if($result){
 	    $str = '';
@@ -19,6 +18,14 @@ class ModelFilms extends Model {
     }
     
     public function get_film_by_id(){
-	
+	$query = "SELECT * FROM films BY id";
+	$result = $this->db->query($query);
+	if($result){
+	    $str = '';
+	    while ($res = $result->fetch_assoc()) {
+		$str .= "<p>".$res['name']."</p>";
+	    }
+	    return $str;
+	}
     }
 }
