@@ -1,4 +1,9 @@
 <div class="item">
     <h2><?= $data['title'] . ' ' . $data['year'] ?></h2>
-    <p><p><img src="<?= $data['photo'] ?>" alt="<?= $data['title'] ?>"><?= $data['description'] ?></p>
+    <div class="img">
+        <img src="<?= $data['photo'] ?>" alt="<?= $data['title'] ?>">
+    </div>
+    <div class="desc">
+        <?= $data['description'] ?>
+    </div>
 </div>
