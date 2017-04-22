@@ -59,11 +59,19 @@ class ModelAdmin extends Model
             }
         }
     }
-
-    public function save_actors()
-    {
-        echo "save_actors";
+    
+    public function save_actors($name, $lastname, $birthdate, $biography, $photo) {
+	$db = new mysqli(DB_HOST, DB_USER,DB_PASS,DB_NAME );
+	if (!$db->connect_errno) {
+	    $q = "INSERT INTO Actors(name, lastname, birthdate, biography, photo) VALUES"
+                    . "('$name','$lastname','$birthdate','$biography', '$photo');";
+	    $res = $db->query($q);
+	    if ($res) {
+		echo 'Ваши данные успешно добавлены';
+                return $res;
+	    }
+	}
     }
-
-
+    
+     
 }
