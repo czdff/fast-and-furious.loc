@@ -3,7 +3,7 @@
 	<input type="text" name="title">
     </label>
     <label> Год выпуска:
-	<input type="text" name="year">
+	<input type="number" name="year">
     </label>
     <label> Описание:
 	<input type="text" name="description">

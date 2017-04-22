@@ -6,7 +6,7 @@
 	<input type="text" name="titlastnamele">
     </label>
     <label> Дата рождения:
-	<input type="text" name="birthdate">
+        <input type="date" name="birthdate">
     </label>
     <label> Биография:
 	<input type="text" name="biography">

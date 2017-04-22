@@ -1,9 +1,15 @@
 <?php
 
 class ControllerAdmin extends Controller {
+    
+    public function __construct() {
+	parent::__construct();
+	$this->model=new ModelAdmin();
+    }
         
     public function actionIndex() {
-	echo "admin";
+	$this->model->save_films('test', 2018, 'descr', '/img/test.jpeg');
+        $this->model->save_actors('test','testov','1975-09-02','biogr','/img/test.jpeg');
     }
     
     public function actionFilms() {
@@ -23,7 +29,7 @@ class ControllerAdmin extends Controller {
     }
     
     public function actionEditActors() {
-	 echo "Edit actors";
+	 $this->view->generate('actors/edit.php', 'layout.php', null, 'hhhhh');
     }
     
     public function actionDeleteActors() {
