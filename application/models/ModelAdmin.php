@@ -6,10 +6,11 @@ class ModelAdmin extends Model{
 	
     }
      
-    public function save_films() {
+    public function save_films($title, $year, $description, $photo) {
 	$db = new mysqli(DB_HOST, DB_USER,DB_PASS,DB_NAME );
 	if (!$db->connect_errno) {
-	    $q = "INSERT INTO films title, year, description, photo ";
+	    $q = "INSERT INTO films(title, year, description, photo) VALUES"
+                    . "('$title','$year','$description', '$photo');";
 	    $res = $db->query($q);
 	    if ($res) {
 		echo 'Ваши данные успешно добавлены';

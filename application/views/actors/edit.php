@@ -1,8 +1,21 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<form name="formActors" method="post">
+    <label>Имя актера:
+	<input type="text" name="name">
+    </label>
+    <label> Фамилия актера:
+	<input type="text" name="titlastnamele">
+    </label>
+    <label> Дата рождения:
+	<input type="text" name="birthdate">
+    </label>
+    <label> Биография:
+	<input type="text" name="biography">
+    </label>
+    <label>Фото:
+	<input type="text" name="photo">
+    </label>
+    <label>   
+	<input type="submit" value="Отправить">
+    </label>
+    
+</form>

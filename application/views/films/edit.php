@@ -3,13 +3,13 @@
 	<input type="text" name="title">
     </label>
     <label> Год выпуска:
-	<input name="year">
+	<input type="text" name="year">
     </label>
     <label> Описание:
-	<input name="description">
+	<input type="text" name="description">
     </label>
     <label>Картинка:
-	<input name="photo">
+	<input type="text" name="photo">
     </label>
     <label>   
 	<input type="submit" value="Отправить">
