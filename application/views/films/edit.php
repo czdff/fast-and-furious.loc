@@ -1,4 +1,4 @@
-<form name="forma" method="post">
+<form method="post">
     <label> Название фильма:
 	<input type="text" name="title">
     </label>
@@ -12,7 +12,7 @@
 	<input type="text" name="photo">
     </label>
     <label>   
-	<input type="submit" value="Отправить">
+	<input type="submit" value="Отправить" name="editFilms">
     </label>
     
 </form>

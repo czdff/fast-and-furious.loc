@@ -10,13 +10,14 @@ class ControllerAdmin extends Controller {
     public function actionIndex() {
 	//$this->model->save_films('test', 2018, 'descr', '/img/test.jpeg');
         //$this->model->save_actors('test','testov','1975-09-02','biogr','/img/test.jpeg');
-        $this->model->save_films('$title', '$year', '$description', '$photo');
+        //$data=$this->model->save_films();
+        $this->view->generate('films/index.php','layout.php',$data,'save films');
     }
 	
     
     public function actionFilms() {
         $data=  $this->model->get_data();
-	$this->view->generate('films/index.php','layout.php',$data,'all films');
+	$this->view->generate('films/index.php','layout.php',$data,'films');
         }
     
     public function actionEditFilms() {
