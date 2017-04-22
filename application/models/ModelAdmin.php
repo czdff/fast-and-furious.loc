@@ -5,6 +5,12 @@ class ModelAdmin extends Model{
     public function get_data(){
 	
     }
+    
+    private $db;
+
+    public function __construct() {
+	$this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    }
      
     public function save_films($title, $year, $description, $photo) {
 	$db = new mysqli(DB_HOST, DB_USER,DB_PASS,DB_NAME );

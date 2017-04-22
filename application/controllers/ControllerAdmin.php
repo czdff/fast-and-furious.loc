@@ -8,13 +8,16 @@ class ControllerAdmin extends Controller {
     }
         
     public function actionIndex() {
-	$this->model->save_films('test', 2018, 'descr', '/img/test.jpeg');
-        $this->model->save_actors('test','testov','1975-09-02','biogr','/img/test.jpeg');
+	//$this->model->save_films('test', 2018, 'descr', '/img/test.jpeg');
+        //$this->model->save_actors('test','testov','1975-09-02','biogr','/img/test.jpeg');
+        $this->model->save_films('$title', '$year', '$description', '$photo');
     }
+	
     
     public function actionFilms() {
-	 echo "films";
-    }
+        $data=  $this->model->get_data();
+	$this->view->generate('films/index.php','layout.php',$data,'all films');
+        }
     
     public function actionEditFilms() {
 	$this->view->generate('films/edit.php', 'layout.php', null, 'hhhhh');
