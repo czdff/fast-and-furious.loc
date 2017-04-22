@@ -47,7 +47,7 @@ class ControllerAdmin extends Controller
     public function actionAddFilm()
     {
         $data = null;
-        var_dump($_SERVER);
+//        var_dump($_SERVER);
         if ($_POST) {
 
             $data['title'] = filter_input(INPUT_POST, 'title');
@@ -64,7 +64,7 @@ class ControllerAdmin extends Controller
                     $data['photo'] = DIRECTORY_SEPARATOR . IMAGE_PATH . DIRECTORY_SEPARATOR . $data['photo']['name'];
                     // Сохранение записи в БД
                     $id = $this->model->save_films($data['title'], $data['year'], $data['description'], $data['photo']);
-                    var_dump($id);
+//                    var_dump($id);
                 } else {
                     $data['message'][] = ['type' => 'error', 'text' => 'Не удалось сохранить файл'];
                 }
