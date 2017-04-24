@@ -9,4 +9,12 @@ require_once 'core/Route.php';
 require_once 'core/config/db.php';
 require_once 'core/config/constants.php';
 
+spl_autoload_register(function($className) {
+   $pathModel = 'application/models/';
+   $class = $pathModel . $className . '.php';
+   if (file_exists($class)) {
+       include_once $class;
+   }
+});
+
 Route::Start();

@@ -2,16 +2,42 @@
 
 class ControllerAdmin extends Controller
 {
+    private $filmModel;
+
+    private $actorModel;
+
+    private $mainModel;
 
     function __construct()
     {
         parent::__construct();
         $this->model = new ModelAdmin();
+        $this->filmModel = new ModelFilms();
+        $this->actorModel = new ModelActors();
+        $this->mainModel = new ModelMain();
     }
 
     public function actionIndex()
     {
-        $this->view->generate('admin/main.php', 'layout_admin.php', null, 'Admin Main');
+        $data = $this->mainModel->get_data();
+        $this->view->generate('admin/main.php', 'layout_admin.php', $data, 'Admin Main');
+    }
+
+    public function actionEditMainPage()
+    {
+        if (isset($_POST['save'])) {
+            $id = filter_input(INPUT_POST, 'id');
+            $title = filter_input(INPUT_POST, 'title');
+            $html = filter_input(INPUT_POST, 'html');
+            if ($id && $title && $html) {
+                if ($this->model->updateMainPage($id, $title, $html)) {
+                    $data['msg'] = 'Update';
+                }
+            }
+        }
+
+        $data['data'] = $this->mainModel->get_data();
+        $this->view->generate('admin/edit.php', 'layout_admin.php', $data, 'Edit Main Page');
     }
 
     public function actionFilms()

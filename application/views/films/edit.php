@@ -22,6 +22,9 @@
         <input type="text" value="<?= $data['description'] ?>" name="description">
     </label>
     <label>Картинка:
+        <input type="text" name="photo-url">
+    </label>
+    <label>Загрузить изображение:
         <input type="file" name="photo">
     </label>
     <label>

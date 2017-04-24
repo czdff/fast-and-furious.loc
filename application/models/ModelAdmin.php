@@ -10,8 +10,15 @@ class ModelAdmin extends Model
         $this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     }
 
-    public function get_data()
+    public function get_data(){}
+
+    public function updateMainPage($id, $title, $html)
     {
+        $query = "UPDATE Pages SET title='" . $title . "', html='" . $html . "' WHERE id=" . (int) $id;
+        if ($this->db->query($query)) {
+            return true;
+        }
+        return false;
     }
 
     public function validate_film($title, $year, $description, $photo)
