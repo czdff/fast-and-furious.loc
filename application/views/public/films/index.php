@@ -14,7 +14,7 @@
 	</td>
 	<td><?=  $film['year']?></td>
 	<td><?=  $film['description']?></td>
-	<td><a href="<?=  'films/'.$film['id']?>"><?=  'films/'.$film['id']?></a>
+	<td><a href="<?=  '/films/'.$film['id']?>"><?=  'films/'.$film['id']?></a>
 	</td>
     </tr>
     <?php endforeach; ?>

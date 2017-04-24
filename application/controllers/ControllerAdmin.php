@@ -20,7 +20,21 @@ class ControllerAdmin extends Controller
     public function actionIndex()
     {
         $data = $this->mainModel->get_data();
-        $this->view->generate('admin/main.php', 'layout_admin.php', $data, 'Admin Main');
+        $this->view->generate('main.php', 'admin/layout.php', $data, 'Admin Main');
+    }
+
+    public function actionLoadImage()
+    {
+        $data = null;
+
+        if ($_FILES) {
+            $image = $_FILES['image'];
+            if($this->model->save_photo($image)) {
+                $data['msg'] = 'File upload';
+            }
+        }
+
+        $this->view->generate('loadimage.php', 'admin/layout.php', $data, 'Edit Main Page');
     }
 
     public function actionEditMainPage()
@@ -37,17 +51,32 @@ class ControllerAdmin extends Controller
         }
 
         $data['data'] = $this->mainModel->get_data();
-        $this->view->generate('admin/edit.php', 'layout_admin.php', $data, 'Edit Main Page');
+        $this->view->generate('edit.php', 'admin/layout.php', $data, 'Edit Main Page');
     }
 
     public function actionFilms()
     {
-        echo "films";
+        if ($_POST) {
+            $id = filter_input(INPUT_POST, 'id');
+            $title = filter_input(INPUT_POST, 'title');
+            $year = filter_input(INPUT_POST, 'year');
+            $description = filter_input(INPUT_POST, 'description');
+            $photoUrl = filter_input(INPUT_POST, 'photo-url');
+        }
+
+        $data= $this->filmModel->get_data();
+        $this->view->generate('films/index.php', 'admin/layout.php', $data, 'Films');
     }
 
     public function actionEditFilms()
     {
-        $this->view->generate('films/edit.php', 'layout.php', null, 'hhhhh');
+        $id = $_GET['id'];
+        // Load model
+        $data['model'] = $this->filmModel->get_film_by_id($id);
+        // Load Images
+        $data['select'] = $this->model->loadImage();
+
+        $this->view->generate('films/edit.php', 'admin/layout.php', $data, 'Edit Films');
     }
 
     public function actionDeleteFilms()
@@ -79,7 +108,7 @@ class ControllerAdmin extends Controller
             $data['title'] = filter_input(INPUT_POST, 'title');
             $data['year'] = filter_input(INPUT_POST, 'year');
             $data['description'] = filter_input(INPUT_POST, 'description');
-            $data['photo'] = $_FILES['photo'];
+            $data['photo'] = filter_input(INPUT_POST, 'photo');
 
             // Проверка введенных данных
             $data['message'] = $this->model->validate_film($data['title'], $data['year'], $data['description'], $data['photo']);
@@ -90,14 +119,13 @@ class ControllerAdmin extends Controller
                     $data['photo'] = DIRECTORY_SEPARATOR . IMAGE_PATH . DIRECTORY_SEPARATOR . $data['photo']['name'];
                     // Сохранение записи в БД
                     $id = $this->model->save_films($data['title'], $data['year'], $data['description'], $data['photo']);
-//                    var_dump($id);
-                } else {
-                    $data['message'][] = ['type' => 'error', 'text' => 'Не удалось сохранить файл'];
                 }
             }
         }
 
-        $this->view->generate('films/edit.php', 'layout_admin.php', $data, 'Add Film');
+        $data['select'] = $this->model->loadImage();
+
+        $this->view->generate('films/edit.php', 'admin/layout.php', $data, 'Add Film');
     }
 
     public function actionAddActor()

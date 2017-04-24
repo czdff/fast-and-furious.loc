@@ -9,12 +9,12 @@ class ControllerFilms extends Controller {
 
     public function actionIndex() {
 	$data=  $this->model->get_data();
-	$this->view->generate('films/index.php','layout.php',$data,'all films');
+	$this->view->generate('films/index.php','public/layout.php',$data,'All Films');
     }
 
     public function actionView($id) {
 	$data=  $this->model->get_film_by_id($id);
-	$this->view->generate('films/view.php','layout.php',$data, $data['title']);
+	$this->view->generate('films/view.php','public/layout.php',$data, $data['title']);
     }
 
     public function actionDelete() {

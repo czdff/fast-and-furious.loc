@@ -11,6 +11,6 @@ class ControllerMain extends Controller
     public function actionIndex()
     {
         $data = $this->model->get_data();
-        $this->view->generate('main.php', 'layout.php', $data);
+        $this->view->generate('main.php', 'public/layout.php', $data);
     }
 }

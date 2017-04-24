@@ -17,5 +17,4 @@
     <label>   
 	<input type="submit" value="Отправить" name='editActors'>
     </label>
-    
 </form>

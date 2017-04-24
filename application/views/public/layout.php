@@ -69,13 +69,13 @@
 	<div class="wrapper-nav-top"> 
 	    <ul class='flex-btn'> 
 		<li><a href="/">Главная</a></li> 
-		<li><a href="/actors">Актеры</a></li> 
-		<li><a href="/films">Фильмы</a></li> 
+		<li><a href="/actors/">Актеры</a></li>
+		<li><a href="/films/">Фильмы</a></li>
 	    </ul> 
 	</div> 
 	<div class="wrapper-content"> 
 	    <div class="lsb"></div> 
-	    <div class="block-content"><?php include_once $content_view ?></div> 
+	    <div class="block-content"><?php include_once $content_view ?></div>
 	    <div class="rsb"></div> 
 	</div> 
 	<footer> 
@@ -84,21 +84,3 @@
     </div> 
 </body> 
 </html>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-
-    </head>
-    <body>
-	<header>
-	    header
-	</header>
-	<div>
-
-	</div>
-	<footer>	    
-	</footer>
-    </body>
-</html>
-

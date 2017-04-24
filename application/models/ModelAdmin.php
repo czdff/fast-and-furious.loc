@@ -21,6 +21,14 @@ class ModelAdmin extends Model
         return false;
     }
 
+    public function loadImage() {
+        $images = array_slice(scandir(IMAGE_PATH), 2);
+        $data = array_map(function ($item) {
+            return DIRECTORY_SEPARATOR . IMAGE_PATH . DIRECTORY_SEPARATOR .$item;
+        }, $images);
+        return $data;
+    }
+
     public function validate_film($title, $year, $description, $photo)
     {
         $message = [];
