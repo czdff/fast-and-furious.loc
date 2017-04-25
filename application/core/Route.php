@@ -6,9 +6,9 @@ class Route {
 	// контроллер и действие по умолчанию
 	$controller_name = 'Main';
 	$action_name = 'index';
+	$tmp=explode('?',$_SERVER['REQUEST_URI']);
+	$routes = explode('/', $tmp[0]);
 
-	$routes = explode('/', $_SERVER['REDIRECT_URL']);
-	
 	// получаем имя контроллера
 	if (!empty($routes[1])) {
 	    $controller_name = ucfirst($routes[1]);
