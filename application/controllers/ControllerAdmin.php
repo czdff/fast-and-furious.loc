@@ -70,33 +70,55 @@ class ControllerAdmin extends Controller
 
     public function actionEditFilms()
     {
-        $id = $_GET['id'];
-        // Load model
+	$id = $_GET['id'];
+	
+	if ($_POST) {
+	    $title = filter_input(INPUT_POST, 'title');
+            $year = filter_input(INPUT_POST, 'year');
+            $description = filter_input(INPUT_POST, 'description');
+            $photo = filter_input(INPUT_POST, 'photo');
+	    
+	    $res = $this->model->update_film($id, $title, $year, $description, $photo);
+	    if ($res) {
+		$data['message'][] = "Save";
+	    }
+	}
+        
         $data['model'] = $this->filmModel->get_film_by_id($id);
-        // Load Images
         $data['select'] = $this->model->loadImage();
 
         $this->view->generate('films/edit.php', 'admin/layout.php', $data, 'Edit Films');
     }
 
-    public function actionDeleteFilms()
-    {
-        echo "Edit films";
-    }
-
     public function actionActors()
     {
-        echo "actors";
+	$data = $this->actorModel->get_data();
+	$this->view->generate('actors/index.php', 'admin/layout.php', $data, 'Edit Actors');
     }
 
-    public function actionEditActors()
+    public function actionEditActor()
     {
-        echo "Edit actors";
-    }
+        $id = $_GET['id'];
+	
+	if ($_POST) {
+	    $name = filter_input(INPUT_POST, 'name');
+            $lastname = filter_input(INPUT_POST, 'lastname');
+            $birthdate = filter_input(INPUT_POST, 'birthdate');
+            $biography = filter_input(INPUT_POST, 'biography');
+            $photo = filter_input(INPUT_POST, 'photo');
+	    
+	    $res = $this->model->update_actors($id, $name, $lastname, $birthdate, $biography, $photo);
+	    if ($res) {
+		$data['message'][] = "Save";
+	    } else {
+		$data['message'][] = "Error";
+	    }
+	}
+        
+        $data['model'] = $this->actorModel->get_actor_by_id($id);
+        $data['select'] = $this->model->loadImage();
 
-    public function actionDeleteActors()
-    {
-        echo "Edit actors";
+        $this->view->generate('actors/edit.php', 'admin/layout.php', $data, 'Edit Actors');
     }
 
     public function actionAddFilm()

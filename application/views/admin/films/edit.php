@@ -7,7 +7,7 @@
 <!-- Вывод сообщения о ошибке -->
 <?php if (count($data['message']) > 0) : ?>
     <?php foreach ($data['message'] as $msg) : ?>
-        <p class="<?= $msg['type'] ?>"><?= $msg['text'] ?></p>
+        <p><?= $msg ?></p>
     <?php endforeach; ?>
 <?php endif; ?>
 

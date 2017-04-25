@@ -12,7 +12,7 @@
 	    <td><?= $actor['name'] ?></td>
 	    <td><?= $actor['lastname'] ?></td>
 	    <td>
-		<a href="/actors/<?= $actor['id'] ?>">more</a>
+		<a href="/admin/editactor?id=<?= $actor['id'] ?>">Edit</a>
 	    </td>
         </tr>
     <?php endforeach; ?>
